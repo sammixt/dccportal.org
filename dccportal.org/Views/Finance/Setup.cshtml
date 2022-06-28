@@ -1,0 +1,183 @@
+@model IEnumerable<dccportal.org.Dto.DueDto>
+<div class="content-body">
+    <section id="basic-datatable">
+        <div class="row">
+            <div class="col-8">
+
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h4 class="card-title"> @ViewBag.PageName</h4>
+                    </div>
+                    <div class="card-body">
+                        <table id="dues_list" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Payment Name</th>
+                                    <th>Payment Description</th>
+                                    <th>Payment Type</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.DuesName</td>
+                                        <td>@item.DuesDesc</td>
+                                        <td>@item.DuesType</td>
+                                        <td>@item.Amount</td>
+                                        <td>@item.CreationDate.ToShortDateString()</td>
+                                        <td>
+                                                <div class="d-inline-flex">
+                                                    <a class="pr-1 dropdown-toggle hide-arrow text-primary" data-toggle="dropdown">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical font-small-4">
+                                                            <circle cx="12" cy="12" r="1"></circle>
+                                                            <circle cx="12" cy="5" r="1"></circle>
+                                                            <circle cx="12" cy="19" r="1"></circle>
+                                                        </svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="javascript:;" data-id="@item.GetDuesIdString" 
+                                                                               data-name="@item.DuesName" 
+                                                                               data-desc="@item.DuesDesc"
+                                                                               data-type="@item.DuesType"
+                                                                               data-amount="@item.Amount"
+                                                                class="dropdown-item details">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text mr-50 font-small-4">
+                                                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                                                </svg>Details
+                                                            </a>
+                                                        <a href="javascript:;" data-id="@item.GetDuesIdString" class="dropdown-item delete-record">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 mr-50 font-small-4">
+                                                                <polyline points="3 6 5 6 21 6"></polyline>
+                                                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                                                <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                                <line x1="14" y1="11" x2="14" y2="17">
+                                                                </line>
+                                                            </svg>Delete
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Add New Payment</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="new-dues-form" class="form form-vertical">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="payment-name">Payment Name</label>
+                                        <input type="text" id="payment-name" class="form-control" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="payment-description">Payment Description</label>
+                                         <input type="text" id="payment-description" class="form-control" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="payment-type">Payment Type</label>
+                                         <input type="text" id="payment-type" class="form-control" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="amount">Amount </label>
+                                        <input type="number" id="amount" class="form-control" placeholder="" />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mr-1 btn-submit">Submit</button>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal to add new user starts-->
+            <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
+                <div class="modal-dialog">
+                    <form id="edit-dues-form" class="edit-unit-form modal-content pt-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Payment</h5>
+                        </div>
+                        <div class="modal-body flex-grow-1">
+                            <div class="form-group">
+                                <label class="form-label" for="edit-payment-name">Payment Name</label>
+                                <input type="text" id="edit-payment-name" class="form-control" placeholder="" />
+                                <input type="hidden" id="setDuesIdString"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="edit-payment-description">Payment Description</label>
+                                <input type="text" id="edit-payment-description" class="form-control" placeholder="" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="edit-payment-type">Payment Type</label>
+                                <input type="text" id="edit-payment-type" class="form-control" placeholder="" />
+                            </div>
+                             <div class="form-group">
+                               <label class="form-label" for="edit-amount">Amount </label>
+                                <input type="number" id="edit-amount" class="form-control" placeholder="" />
+                            </div>
+                           
+                            <button type="submit" class="btn btn-primary mr-1 data-submit">Submit</button>
+                            <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Modal to add new user Ends-->
+  
+
+    </section>
+</div>
+
+@section HeaderScripts {
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/forms/select/select2.min.css">
+    
+}
+
+@section FooterScripts{
+    <script src="~/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    
+    <script src="~/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="~/assets/js/scripts/tables/table-datatables-basic.js"></script>
+       <script src="~/assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/js/dues.js"></script>
+} 

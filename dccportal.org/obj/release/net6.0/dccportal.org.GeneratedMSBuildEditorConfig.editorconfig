@@ -1,0 +1,128 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = dccportal.org
+build_property.RootNamespace = dccportal.org
+build_property.ProjectDir = /Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Attendance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXR0ZW5kYW5jZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Departmental/MemberDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVwYXJ0bWVudGFsL01lbWJlckRldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Departmental/MembersInDept.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVwYXJ0bWVudGFsL01lbWJlcnNJbkRlcHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Departmental/MembersInUnit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVwYXJ0bWVudGFsL01lbWJlcnNJblVuaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Departmental/UnitsInDept.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVwYXJ0bWVudGFsL1VuaXRzSW5EZXB0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Departments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVwYXJ0bWVudHMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Finance/DuesEntry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmluYW5jZS9EdWVzRW50cnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Finance/Expense.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmluYW5jZS9FeHBlbnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Finance/MembersInDept.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmluYW5jZS9NZW1iZXJzSW5EZXB0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Finance/Setup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmluYW5jZS9TZXR1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9EYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Home/DeptDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9EZXB0RGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Members/Department.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVtYmVycy9EZXBhcnRtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Members/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVtYmVycy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Shared/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Units/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVW5pdHMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Upload/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXBsb2FkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Users/BelieverForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlcnMvQmVsaWV2ZXJGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Users/Believers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlcnMvQmVsaWV2ZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Users/BelieversList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlcnMvQmVsaWV2ZXJzTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sasmuelezeala/Documents/SammyProjects/dccportal.org/dccportal.org/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pcbp5z80jn

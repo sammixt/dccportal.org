@@ -1,0 +1,267 @@
+@model dccportal.org.Dto.BelieversDto
+@using dccportal.org.Dto;
+
+@{
+    List<PaymentDto> paymentRecords = (List<PaymentDto>) ViewBag.PaymentRecord;
+}
+<div class="content-body">
+    <section id="basic-datatable">
+        <div class="row match-height">
+                        <!-- Medal Card -->
+                        <div class="col-xl-4 col-md-6 col-12">
+                            <div class="card card-congratulation-medal">
+                                <div class="card-body">
+                                    <h5>Transacations for <b>@Model.FirstName @Model.LastName!</b></h5>
+                                    <p class="card-text font-small-3">@Model.Email</p>
+                                    <h3 class="mb-75 mt-2 pt-50">
+                                        <a href="javascript:void(0);">₦ <span id="amount"></span></a>
+                                    </h3>
+                                    <button type="button" id="pay" class="btn btn-primary">Pay</button>
+                                    <button type="button" id="topup" class="btn btn-success">Top Up</button>
+                                   
+                                    <!-- <img src="../../../app-assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" /> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Medal Card -->
+
+                        <!-- Statistics Card -->
+                        <div class="col-xl-8 col-md-6 col-12">
+                            <div class="card card-statistics">
+                                <div class="card-header">
+                                    <h4 class="card-title">Statistics</h4>
+                                    @* <div class="d-flex align-items-center">
+                                        <p class="card-text font-small-2 mr-25 mb-0">Updated 1 month ago</p>
+                                    </div> *@
+                                </div>
+                                <div class="card-body statistics-body">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-primary mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="trending-up" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">@Model.Sex</h4>
+                                                    <p class="card-text font-small-3 mb-0">Gender</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-info mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="user" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">@Model.PhoneNumber</h4>
+                                                    <p class="card-text font-small-3 mb-0">Phone</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-danger mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">@Model.DateOfBirthString</h4>
+                                                    <p class="card-text font-small-3 mb-0">DoB</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @* <div class="col-xl-3 col-sm-6 col-12">
+                                            <div class="media">
+                                                <div class="avatar bg-light-success mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="dollar-sign" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">$9745</h4>
+                                                    <p class="card-text font-small-3 mb-0">Revenue</p>
+                                                </div>
+                                            </div>
+                                        </div> *@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Statistics Card -->
+                    </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h4 class="card-title"> @ViewBag.PageName</h4>
+                    </div>
+                    <div class="card-body">
+                        <table id="dues_list" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Dues Type</th>
+                                    <th>Amount</th>
+                                    <th>Month</th>
+                                    <th>Year</th>
+                                    <th>Payment Date</th>
+                                    <th>Payment Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (paymentRecords != null)
+                                {
+                                    foreach (var item in paymentRecords)
+                                    {
+                                        <tr>
+                                            <td>@item.DueType</td>
+                                            <td>@item.Amount</td>
+                                            <td>@item.Month</td>
+                                            <td>@item.Year</td>
+                                            <td>@(item.PaymentDate.HasValue?item.PaymentDate.Value.ToShortDateString():"")</td>
+                                            <td>@item.PaymentStatus</td>
+                                        </tr>
+                                    }
+
+                                }
+                                   
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal to add new user starts-->
+            <div class="modal modal-slide-in new-user-modal fade" id="modal-slide-in">
+                <div class="modal-dialog">
+                    <form id="dues-payment-form" class="edit-user modal-content pt-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                            <h5 class="modal-title" id="exampleModalLabel">Make Payment</h5>
+                        </div>
+                        <div class="modal-body flex-grow-1">
+                            <div class="form-group">
+                               <label class="form-label" for="vertical-department">Payment Type </label>
+                                <select class="select2 w-100 form-control"  id="vertical-payment-type">
+                                    <option value="0"></option>
+                                    @foreach (var item in ViewBag.DuesList)
+                                    {
+                                        <option value="@item.DuesId">@item.DuesName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group" style="display:none" id="MonthDiv">
+                               <label class="form-label" for="Month">Select Month </label>
+                               <select name="Month" id="Month" class="select2 w-100 form-control">
+                                    <option value="0"></option>
+                                    @foreach (var item in ViewBag.Month)
+                                    {
+                                        <option value="@item.MonthId">@item.Month</option>
+                                    }
+                                </select>
+                                
+                            </div>
+
+                            <div id="Year" style="display:none" class="form-group">
+                            <label class="control-label" for="Year">Payment Year</label>
+                            <select name="Year" id="Year" class="select2 w-100  form-control">
+                                <option value="@DateTime.Now.Year">@DateTime.Now.Year</option>
+                                @for (var i = 1; i <= 10 ;i++)
+                                {
+                                    <option value="@(DateTime.Now.Year -  i)">@(DateTime.Now.Year - i)</option>
+                                }
+                            </select>
+                            @*<input name="Year" onkeypress="disableText(event)" data-date-format="yyyy" type="text"  data-provide="datepicker" id="datePicker" class="form-control" />*@
+                        </div>
+                            <div class="form-group">
+                                <label class="form-label" for="dues-amount">Amount</label>
+                                <input type="number" id="dues-amount" class="form-control" />
+                               <input type="hidden" id="memberId" value="@Model.MemberId"/>
+                            </div>
+                            <div class="form-group">
+                                    <label class="form-label" for="payment-date">Payment Date</label>
+                                     <input type="text" id="payment-date" class="form-control flatpickr-basic" placeholder="YYYY-MM-DD" />
+                            </div>
+                             <div class="form-group">
+                                <label class="form-label" for="narration">Narration</label>
+                                <input type="text" id="narration" class="form-control" placeholder="Montly dues" />
+                            </div>
+                            <div class="form-group">
+                               <label class="form-label" for="vertical-payment-method">Payment Method </label>
+                                <select class="select2 w-100 form-control" id="vertical-payment-method">
+                                    <option value="0">Pay Direct</option>
+                                    <option value="1">Pay From Wallet</option>
+                                </select>
+                            </div>
+                           
+                            <button type="submit" class="btn btn-primary mr-1 data-submit">Submit</button>
+                            <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Modal to add new user Ends-->
+
+            <div class="modal modal-slide-in new-user-modal fade" id="modal-slide-in-topup">
+                <div class="modal-dialog">
+                    <form id="top-up-form" class="edit-user modal-content pt-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                            <h5 class="modal-title" id="exampleModalLabel">Top up Wallet </h5>
+                        </div>
+                        <div class="modal-body flex-grow-1">
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="vertical-dept-desc">Amount</label>
+                                <input type="number" id="topup-amount" class="form-control" placeholder="1000" />
+                                <input type="hidden" id="member" value="@Model.MemberId"/>
+                            </div>
+                             <div class="form-group">
+                                <label class="form-label" for="topup-narration">Narration</label>
+                                <input type="text" id="topup-narration" class="form-control" placeholder="John" />
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-1 data-submit">Submit</button>
+                            <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+  
+
+    </section>
+</div>
+
+@section HeaderScripts {
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    @* <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css"> *@
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/forms/pickers/form-flat-pickr.css">
+}
+
+@section FooterScripts{
+    <script src="~/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    @* <script src="~/assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script> *@
+    <script src="~/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="~/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <script src="~/assets/js/scripts/forms/pickers/form-pickers.js"></script>
+    @* <script src="~/assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/buttons.print.min.js"></script> *@
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="~/js/dues_entry.js"></script>
+} 

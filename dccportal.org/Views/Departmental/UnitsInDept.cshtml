@@ -1,0 +1,124 @@
+<div class="content-body">
+    <section id="basic-datatable">
+        <div class="row">
+            <div class="col-8">
+
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h4 class="card-title"> @ViewBag.PageName</h4>
+                    </div>
+                    <div class="card-body">
+                        <table id="unit_list" class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Short Code</th>
+                                    <th>Department</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Add Unit</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="new-unit-form" class="form form-vertical">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="vertical-unit-name">Unit Name</label>
+                                        <input type="text" id="vertical-unit-name" class="form-control" placeholder="John" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="vertical-unit-function">Unit Function</label>
+                                         <input type="text" id="vertical-unit-function" class="form-control" placeholder="John" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="vertical-unit-code">Unit Short Code</label>
+                                         <input type="text" id="vertical-unit-shortcode" class="form-control" placeholder="John" />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mr-1 btn-submit">Submit</button>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal to add new user starts-->
+            <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
+                <div class="modal-dialog">
+                    <form id="edit-unit-form" class="edit-unit-form modal-content pt-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Unit</h5>
+                        </div>
+                        <div class="modal-body flex-grow-1">
+                            <div class="form-group">
+                                <label class="form-label" for="unit-name">Unit Name</label>
+                                <input type="text" id="unit-name" class="form-control" placeholder="Web" />
+                                <input type="hidden" id="setUnitIdString"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="unit-function">Unit Function</label>
+                                <input type="text" id="unit-function" class="form-control" placeholder="Build Website" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="unit-code">Unit Short Code</label>
+                                <input type="text" id="unit-shortcode" class="form-control" placeholder="WEB" />
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary mr-1 data-submit">Submit</button>
+                            <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Modal to add new user Ends-->
+  
+
+    </section>
+</div>
+
+@section HeaderScripts {
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/forms/select/select2.min.css">
+    
+}
+
+@section FooterScripts{
+    <script src="~/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    
+    <script src="~/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="~/assets/js/scripts/tables/table-datatables-basic.js"></script>
+       <script src="~/assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/js/unit.in.dept.js"></script>
+} 

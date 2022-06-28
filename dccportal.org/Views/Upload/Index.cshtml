@@ -1,0 +1,179 @@
+ <div class="content-body">
+                <!-- Validation -->
+                <section class="">
+                    <div class="row">
+                        <!-- Bootstrap Validation -->
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Upload Members</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form id="upload-user-form" enctype="multipart/form-data" >
+                                        <div class="form-group">
+                                            <label for="select-country1">Departments</label>
+                                            <select class="form-control" id="vertical-department" required>
+                                               
+                                            </select>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please select Department</div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="customFile1">Upload Members</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="form-control-file" id="customFile1" required />
+                                                <label class="custom-file-label" for="customFile1">Upload Members</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <button type="button" class="btn btn-primary data-submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-md-6 col-12">
+
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h4 class="card-title">Successful Upload</h4>
+                    </div>
+                    <div class="card-body">
+                        <table id="dt_basic" class="dt_basic table">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Gender</th>
+                                </tr>
+                            </thead>
+                            <tbody id="successful">
+                                @* @if (Model.Any())
+                                {
+                                    //int count = 1;
+                                    foreach (var order in Model)
+                                    { *@
+                                        @* <tr>
+
+                                          
+                                            <td>Samuel</td>
+                                            <td>Dev</td>
+                                            <td>Male</td>
+                                        </tr> *@
+                                    @* }
+                                } *@
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <!-- /Bootstrap Validation -->
+                    </div>
+                </section>
+                
+                <section id="basic-datatable">
+                    <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h4 class="card-title">Failed Uploads</h4>
+                    </div>
+                    <div class="card-body">
+                        <table id="dt_basic" class="dt_basics table">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Gender</th>
+                                    <th>Error</th>
+                                </tr>
+                            </thead>
+                            <tbody id="failed">
+                                @* @if (Model.Any())
+                                {
+                                    //int count = 1;
+                                    foreach (var order in Model)
+                                    { *@
+                                        <tr>
+
+                                            @* <td>@(count++)</td> *@
+                                            @* <td>Samuel</td>
+                                            <td>Dev</td>
+                                            <td>Male</td>
+                                            <td>9090909</td> *@
+                                        </tr>
+                                    @* }
+                                } *@
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal to add new record -->
+
+  
+
+                </section>
+
+            </div>
+
+@section HeaderScripts {
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+      <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/forms/select/select2.min.css">
+    
+}
+
+@section FooterScripts{
+    <script src="~/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    
+    <script src="~/assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="~/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <script src="~/assets/js/scripts/forms/form-validation.js"></script>
+    <script src="~/js/upload.js"></script>
+    <script>
+        @* $('.dt_basic').DataTable({
+    columnDefs: [
+        {
+           
+            className: 'control',
+            orderable: false,
+            responsivePriority: 2,
+            targets: 0
+        },
+      
+    ],
+   language: {
+        paginate: {
+           
+            previous: '&nbsp;',
+            next: '&nbsp;'
+        }
+    }
+}); *@
+    </script>
+} 

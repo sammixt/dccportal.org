@@ -1,0 +1,151 @@
+@model dccportal.org.Dto.BelieversDto
+@using dccportal.org.Dto;
+@using System.Security.Claims;
+@{
+    var identity = (ClaimsIdentity)User.Identity;
+    var name = identity.FindFirst(ClaimTypes.GivenName).Value;
+    var email = identity.FindFirst(ClaimTypes.Email).Value;
+}
+<div class="content-body">
+    <section id="basic-datatable">
+        <div class="row match-height">
+                        <!-- Medal Card -->
+                        <div class="col-xl-4 col-md-6 col-12">
+                            <div class="card card-congratulation-medal">
+                                <div class="card-body">
+                                    <h5>Welcome @name!</b></h5>
+                                    <p class="card-text font-small-3">@email</p>
+                                    @* <h3 class="mb-75 mt-2 pt-50">
+                                        <a href="javascript:void(0);">₦ <span id="amount"></span></a>
+                                    </h3> *@
+                                    @* <button type="button" id="pay" class="btn btn-primary">Pay</button>
+                                    <button type="button" id="topup" class="btn btn-success">Top Up</button> *@
+                                   
+                                    <!-- <img src="../../../app-assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" /> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Medal Card -->
+
+                        <!-- Statistics Card -->
+                        <div class="col-xl-8 col-md-6 col-12">
+                            <div class="card card-statistics">
+                                <div class="card-header">
+                                    <h4 class="card-title">Statistics</h4>
+                                    @* <div class="d-flex align-items-center">
+                                        <p class="card-text font-small-2 mr-25 mb-0">Updated 1 month ago</p>
+                                    </div> *@
+                                </div>
+                                <div class="card-body statistics-body">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-primary mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="trending-up" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">@ViewBag.Believer</h4>
+                                                    <p class="card-text font-small-3 mb-0">Believers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-info mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="user" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">@ViewBag.Members</h4>
+                                                    <p class="card-text font-small-3 mb-0">Workers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-danger mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">@ViewBag.Departments</h4>
+                                                    <p class="card-text font-small-3 mb-0">Departments</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-12">
+                                            <div class="media">
+                                                <div class="avatar bg-light-success mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">@ViewBag.Units</h4>
+                                                    <p class="card-text font-small-3 mb-0">Units</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Statistics Card -->
+                    </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h4 class="card-title"> Department Summary</h4>
+                    </div>
+                    <div class="card-body">
+                        <table id="dept_list" class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Department</th>
+                                    <th>Total members</th>
+                                    <th>Total Units</th>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+@section HeaderScripts {
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    @* <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css"> *@
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/forms/pickers/form-flat-pickr.css">
+}
+
+@section FooterScripts{
+    <script src="~/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    @* <script src="~/assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script> *@
+    <script src="~/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="~/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <script src="~/assets/js/scripts/forms/pickers/form-pickers.js"></script>
+    @* <script src="~/assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/buttons.print.min.js"></script> *@
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="~/js/dashboard.js"></script>
+} 

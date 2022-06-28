@@ -1,0 +1,137 @@
+@model dccportal.org.Dto.WorkerAttendanceOutput
+@{
+    List<SelectListItem> Group = new List<SelectListItem>();
+    Group.Add(new SelectListItem { Text = "ALL", Value = "ALL" });
+    Group.Add(new SelectListItem { Text = "A", Value = "A" });
+    Group.Add(new SelectListItem { Text = "B", Value = "B" });
+    Group.Add(new SelectListItem { Text = "C", Value = "C" });
+    Group.Add(new SelectListItem { Text = "D", Value = "D" });
+    Group.Add(new SelectListItem { Text = "E", Value = "E" });
+    Group.Add(new SelectListItem { Text = "F", Value = "F" });
+    Group.Add(new SelectListItem { Text = "G", Value = "G" });
+}
+<div class="content-body">
+    <section id="basic-datatable">
+        <div class="row">
+             <div class="col-md-4 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Select Group</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="new-attendance-form" class="form form-vertical">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="attendance-date">Date</label>
+                                         <input type="text" asp-for="GetDate" id="attendance-date" value="@ViewBag.Date" class="form-control flatpickr-basic" placeholder="YYYY-MM-DD" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="vertical-group">Select Group</label>
+                                        <select asp-for="DepartmentGroup" class="select2 w-100 form-control" id="vertical-group">
+                                            @foreach (var item in Group)
+                                            {
+                                                <option  value="@item.Value">@item.Text</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mr-1 btn-submit">Submit</button>
+                                    <button type="button" class="btn btn-success mr-1 btn-search">Search</button>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h4 class="card-title"> @ViewBag.PageName</h4>
+                    </div>
+                    <div class="card-body">
+                        <table id="unit_list" class="table">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Group</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="attendance_checker">
+                                @foreach (var item in Model.AttendanceRegisters)
+                                {
+                                    <tr>
+                                    
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+                                    <td>@item.Group</td>
+                                    <td><span class="@item.MemberId">@(item.Status == true?"Present":"Absent")</span></td>
+                                    <td>
+                                        <div class="custom-control custom-switch custom-switch-success">
+                                            <input type="checkbox" data-id="@item.MemberId" class="custom-control-input mark" id="customSwitch_@item.MemberId"
+                                             checked="@item.Status" />
+                                            <label class="custom-control-label" for="customSwitch_@item.MemberId">
+                                                <span class="switch-icon-left"><i data-feather="check"></i></span>
+                                                <span class="switch-icon-right"><i data-feather="x"></i></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+
+       
+  
+
+    </section>
+</div>
+
+@section HeaderScripts {
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+   <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/forms/pickers/form-flat-pickr.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/forms/select/select2.min.css">
+    
+    
+}
+
+@section FooterScripts{
+    <script src="~/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <script src="~/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <script src="~/assets/js/scripts/forms/pickers/form-pickers.js"></script>
+    <script src="~/assets/vendors/js/forms/select/select2.full.min.js"></script>
+    
+    <script src="~/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="~/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    
+    <script src="~/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="~/assets/js/scripts/tables/table-datatables-basic.js"></script>
+       <script src="~/assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/js/attendance.js"></script>
+} 

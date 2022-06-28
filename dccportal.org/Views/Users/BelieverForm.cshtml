@@ -1,0 +1,223 @@
+@model dccportal.org.Dto.BelieversDto
+<div class="content-body">
+    <!-- Vertical Wizard -->
+                <section class="vertical-wizard">
+                    <div id="new-believer-form" class="bs-stepper vertical vertical-wizard-example">
+                        <div class="bs-stepper-header">
+                           
+                            <div class="step" data-target="#personal-info-vertical">
+                                <button type="button" class="step-trigger">
+                                    <span class="bs-stepper-box">1</span>
+                                    <span class="bs-stepper-label">
+                                        <span class="bs-stepper-title">Personal Info</span>
+                                        <span class="bs-stepper-subtitle">Add Personal Info</span>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="step" data-target="#address-step-vertical">
+                                <button type="button" class="step-trigger">
+                                    <span class="bs-stepper-box">2</span>
+                                    <span class="bs-stepper-label">
+                                        <span class="bs-stepper-title">Address</span>
+                                        <span class="bs-stepper-subtitle">Add Address</span>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="step" data-target="#social-links-vertical">
+                                <button type="button" class="step-trigger">
+                                    <span class="bs-stepper-box">3</span>
+                                    <span class="bs-stepper-label">
+                                        <span class="bs-stepper-title">Social Links</span>
+                                        <span class="bs-stepper-subtitle">Add Social Links</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bs-stepper-content">
+                            <div id="personal-info-vertical" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Personal Info</h5>
+                                    <small>Add Personal Info</small>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" asp-for="FirstName" id="firstName" class="form-control" placeholder="John" />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input type="text" asp-for="LastName" id="lastName" class="form-control" placeholder="Doe" />
+                                    </div>
+                                     <div class="form-group col-md-6">
+                                        <label class="form-label" for="dateOfBirth">Date of Birth</label>
+                                        <input type="text" asp-for="DateOfBirthString" id="dateOfBirth" class="form-control flatpickr-basic" placeholder="YYYY-MM-DD" />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="sex">Gender</label>
+                                        <select asp-for="Sex" class="select2 w-100 form-control" id="sex">
+                                            <option label=" "></option>
+                                            <option value="Male">Male</option>
+                                             <option value="Female">Female</option>
+                                        </select>
+                                        <input type="hidden" asp-for="MemberIdString" id="memberIdString" />
+                                    </div>
+                                   
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="maritalStatus">Marital Status</label>
+                                        <select class="select2 w-100" asp-for="MaritalStatus" id="maritalStatus">
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Divorced">Divorced</option>
+                                            <option value="Widowed">Widowed</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="weddingAnniversary">Wedding Anniversary</label>
+                                        <input type="text" asp-for="WeddingAnniversaryString" id="weddingAnniversary" class="form-control flatpickr-basic" placeholder="YYYY-MM-DD" />
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary btn-prev">
+                                        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                                        <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                    </button>
+                                    <button class="btn btn-primary btn-next">
+                                        <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                        <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="address-step-vertical" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Address</h5>
+                                    <small>Enter Your Address.</small>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Email</label>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i data-feather="mail"></i></span>
+                                            </div>
+                                            <input type="email" asp-for="Email" id="email" class="form-control" name="email" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="phoneNumber">Mobile</label>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i data-feather="smartphone"></i></span>
+                                            </div>
+                                            <input type="number" asp-for="PhoneNumber" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="Mobile" />
+                                        </div>
+                                    </div>
+                                     <div class="form-group col-md-6">
+                                        <label for="altPhoneNumber">Alt Mobile</label>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i data-feather="smartphone"></i></span>
+                                            </div>
+                                            <input type="number" asp-for="AltPhoneNumber" id="altPhoneNumber" class="form-control" name="altPhoneNumber" placeholder="Mobile" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="homeAddressOne">Address Line One</label>
+                                        <input type="text" asp-for="HomeAddressOne" id="homeAddressOne" class="form-control" placeholder="98  Borough bridge Road, Birmingham" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                     <div class="form-group col-md-6">
+                                        <label class="form-label" for="homeAddressTwo">Address Line Two</label>
+                                        <input type="text" asp-for="HomeAddressTwo" id="homeAddressTwo" class="form-control" placeholder="98  Borough bridge Road, Birmingham" />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="city">City</label>
+                                        <input type="text" asp-for="City" id="city" class="form-control" placeholder="Lagos" />
+                                    </div>
+                                     <div class="form-group col-md-6">
+                                        <label class="form-label" for="stateName">State</label>
+                                        <select asp-for="StateName" class="select2 w-100" id="stateName">
+                                            @foreach (var item in ViewBag.States)
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="country">Country</label>
+                                        <input type="text" asp-for="Country" id="country" class="form-control" value="Nigeria" placeholder="Nigeria" />
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary btn-prev">
+                                        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                                        <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                    </button>
+                                    <button class="btn btn-primary btn-next">
+                                        <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                        <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="social-links-vertical" class="content">
+                                <div class="content-header">
+                                    <h5 class="mb-0">Social Links</h5>
+                                    <small>Enter Your Social Links.</small>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="twitterHandle">Twitter</label>
+                                        <input type="text" asp-for="TwitterHandle" id="twitterHandle" class="form-control" placeholder="https://twitter.com/abc" />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="facebookName">Facebook</label>
+                                        <input type="text" asp-for="FacebookName" id="facebookName" class="form-control" placeholder="https://facebook.com/abc" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="instagramHandle">Instagram</label>
+                                        <input type="text" asp-for="InstagramHandle" id="instagramHandle" class="form-control" placeholder="https://plus.google.com/abc" />
+                                    </div>
+                                    @* <div class="form-group col-md-6">
+                                        <label class="form-label" for="vertical-linkedin">Linkedin</label>
+                                        <input type="text" id="vertical-linkedin" class="form-control" placeholder="https://linkedin.com/abc" />
+                                    </div> *@
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary btn-prev">
+                                        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                                        <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                    </button>
+                                    <button class="btn btn-success btn-submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /Vertical Wizard -->
+</div>
+
+
+@section HeaderScripts {
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/forms/wizard/bs-stepper.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/forms/select/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/forms/form-validation.css">
+        <link rel="stylesheet" type="text/css" href="~/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+        <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/forms/pickers/form-flat-pickr.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/plugins/forms/form-wizard.css">
+
+}
+
+@section FooterScripts{
+    <script src="~/assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
+    <script src="~/assets/vendors/js/forms/select/select2.full.min.js"></script>
+      <script src="~/assets/js/scripts/forms/form-wizard.js"></script>
+      <script src="~/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+      <script src="~/assets/js/scripts/forms/pickers/form-pickers.js"></script>
+    <script src="~/assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="~/js/new_believer.js"></script>
+} 
